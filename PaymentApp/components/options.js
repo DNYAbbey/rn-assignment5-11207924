@@ -6,8 +6,8 @@ export function Option ({icon, name}) {
     const { isDarkTheme } = useTheme();
     return(
         <View style={styles.optionContainer}>
-            <View style={styles.option}>
-                <Image source={icon} style={styles.icon}/>
+            <View style={[styles.option, isDarkTheme && styles.darkOption]}>
+                <Image source={icon} style={[styles.icon, isDarkTheme && styles.darkIcon]}/>
             </View>
             <Text style={[styles.optionName, isDarkTheme && styles.darkOptionName]}>{name}</Text>
         </View>
@@ -30,10 +30,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: '5px',
     },
+    darkOption: {
+        backgroundColor: 'rgba(51, 51, 70, 0.5)'
+    },
     icon:{
         width: '24px',
         height: '25px',
         
+    },
+    darkIcon:{
+        width: '35px',
+        height: '36px',
+        opacity: 1,
     },
     optionName: {
         fontSize: '15px',
@@ -45,7 +53,7 @@ const styles = StyleSheet.create({
         fontWeight: 400,    
     },
     darkOptionName: {
-        color: 'white',
+        color: 'grey',
     },
 
 })

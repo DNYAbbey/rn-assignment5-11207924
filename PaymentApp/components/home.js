@@ -5,6 +5,7 @@ import { useTheme } from "./themeContext";
 
 export function HomeScreen () {
     const { isDarkTheme } = useTheme();
+
     return(
         <ScrollView style={[styles.container, isDarkTheme && styles.darkContainer]} showsVerticalScrollIndicator={false}>
             <View style={styles.header}>
@@ -13,18 +14,18 @@ export function HomeScreen () {
                     <Text style={styles.welcome}>Welcome Back</Text>
                     <Text style={[styles.name, isDarkTheme && styles.darkname]}>Eric Atsu</Text>
                 </View>
-               <View style={styles.search}>
-               <Image source={require('../assets/search.png')} style={styles.searchicon}/>
+               <View style={[styles.search, , isDarkTheme && styles.darkSearch]}>
+               <Image source={ isDarkTheme ? require('../assets/icons8-search-50.png'): require('../assets/search.png')} style={styles.searchicon}/>
                 </View> 
             </View>
 
             <Image source={require('../assets/Card.png')} style={styles.card}/>
 
             <View style={styles.options}>
-                <Option icon={require('../assets/send.png')} name={'Send'}/>
-                <Option icon={require('../assets/recieve.png')} name={'Receive'}/>
-                <Option icon={require('../assets/loan.png')} name={'Loan'}/>
-                <Option icon={require('../assets/topUp.png')} name={'TopUp'}/>
+                <Option icon={ isDarkTheme ? require('../assets/icons8-up-arrow-50.png') : require('../assets/send.png')} name={'Send'}/>
+                <Option icon={ isDarkTheme ? require('../assets/icons8-down-arrow-50.png') : require('../assets/recieve.png')} name={'Receive'}/>
+                <Option icon={ isDarkTheme ? require('../assets/icons8-dollar-coin-50.png') : require('../assets/loan.png')} name={'Loan'}/>
+                <Option icon={ isDarkTheme ? require('../assets/icons8-upload-cloud-64.png') : require('../assets/topUp.png')} name={'TopUp'}/>
             </View>
 
             <View style={styles.titleView}>
@@ -34,7 +35,7 @@ export function HomeScreen () {
 
             <View>
                 <Transaction
-                 icon={require('../assets/apple.png')} 
+                 icon={ isDarkTheme ? require('../assets/icons8-apple-logo-60.png') : require('../assets/apple.png')} 
                  name={'Apple Store'}
                  type={'Entertainment'}
                  cost={'-$5,99'}
@@ -46,7 +47,7 @@ export function HomeScreen () {
                  cost={'-$12,99'}
                   />
                   <Transaction
-                 icon={require('../assets/moneyTransfer.png')} 
+                 icon={ isDarkTheme ? require('../assets/download-arrow-4169.png') : require('../assets/moneyTransfer.png')} 
                  name={'Money Transfer'}
                  type={'Transaction'}
                  cost={'$300'}
@@ -102,7 +103,10 @@ const styles = StyleSheet.create({
         borderRadius: '50%', 
         justifyContent: 'center',
         alignItems: 'center',
-
+    },
+    darkSearch: {
+        backgroundColor: 'rgba(51, 51, 70, 0.5)',
+        
     },
     searchicon: {
         width: '30px',

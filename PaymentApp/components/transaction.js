@@ -10,7 +10,7 @@ export function Transaction ({icon, name, type, cost}) {
       const { isDarkTheme } = useTheme();
     return(
         <View style={styles.transactionContainer}>
-            <View style={styles.icon}>
+            <View style={[styles.icon,  isDarkTheme && styles.darkIcon]}>
                 <Image source={icon} style={styles.iconImg}/>
             </View>
             <View style={styles.details}>
@@ -33,14 +33,16 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         marginBottom: '15px',
     },
+    darkIcon: {
+        backgroundColor: 'rgba(51, 51, 70, 0.5).',
+    },
     icon: {
         backgroundColor: 'lightgray',
         width: '65px',
         height: '65px',
         borderRadius: '50%',
         justifyContent: 'center',
-        alignItems: 'center',
-        
+        alignItems: 'center',     
     },
     iconImg: {
         width: '28px',

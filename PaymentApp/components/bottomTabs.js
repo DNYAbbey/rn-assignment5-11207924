@@ -26,6 +26,8 @@ export function Tabs ({}) {
               backgroundColor: isDarkTheme ? '#333345' : '#ffffff',
               borderTopWidth: '0px',
               elevation: 0,
+              height: '70px',
+              paddingBottom: '10px',
             },
           })}
          
