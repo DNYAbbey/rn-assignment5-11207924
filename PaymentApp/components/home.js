@@ -4,7 +4,7 @@ import { Transaction } from "./transaction";
 
 export function HomeScreen () {
     return(
-        <ScrollView style={styles.container} showsHorizontalScrollIndicator={false}>
+        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
             <View style={styles.header}>
                 <Image source={require('../assets/profile.png')} style={styles.profile}/>
                 <View style={styles.textblock}>
@@ -15,17 +15,21 @@ export function HomeScreen () {
                <Image source={require('../assets/search.png')} style={styles.searchicon}/>
                 </View> 
             </View>
+
             <Image source={require('../assets/Card.png')} style={styles.card}/>
+
             <View style={styles.options}>
                 <Option icon={require('../assets/send.png')} name={'Send'}/>
                 <Option icon={require('../assets/recieve.png')} name={'Receive'}/>
                 <Option icon={require('../assets/loan.png')} name={'Loan'}/>
                 <Option icon={require('../assets/topUp.png')} name={'TopUp'}/>
             </View>
+
             <View style={styles.titleView}>
                 <Text style={styles.title}>Transaction</Text>
                 <Text style={styles.more}>See All</Text>
             </View>
+
             <View>
                 <Transaction
                  icon={require('../assets/apple.png')} 
@@ -52,6 +56,7 @@ export function HomeScreen () {
                  cost={'-$88'}
                   />
             </View>
+
         </ScrollView>
     )}
 

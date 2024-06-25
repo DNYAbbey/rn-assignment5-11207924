@@ -1,6 +1,11 @@
 import { View, StyleSheet, Text, Image } from "react-native";
 
 export function Transaction ({icon, name, type, cost}) {
+
+    const getColorStyle = (value) => {
+        return value.startsWith('-') ? styles.negativeText : styles.positiveText;
+      };
+
     return(
         <View style={styles.transactionContainer}>
             <View style={styles.icon}>
@@ -11,7 +16,7 @@ export function Transaction ({icon, name, type, cost}) {
                 <Text style={styles.type}>{type}</Text>
             </View>
             <View>
-                <Text style={styles.cost}>{cost}</Text>
+                <Text style={[styles.cost, getColorStyle(cost)]}>{cost}</Text>
             </View>
         </View>
     )}
@@ -61,7 +66,11 @@ const styles = StyleSheet.create({
         fontSize: '24px',
         fontWeight: 'bold',
         height: '100%',
-
-    }
-
+    },
+    positiveText: {
+        color: 'blue',
+      },
+      negativeText: {
+        color: 'black',
+      },
 })
