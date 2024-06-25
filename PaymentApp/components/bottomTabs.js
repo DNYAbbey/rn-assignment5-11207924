@@ -1,13 +1,14 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text, StyleSheet, Image  } from 'react-native';
+import { StyleSheet, Image  } from 'react-native';
 import { HomeScreen } from './home';
 import { SettingsScreen } from './settings';
-import { namedQuery } from 'firebase/firestore';
+import { useTheme } from "./themeContext";
 
 
 const Tab = createBottomTabNavigator();
 
 export function Tabs ({}) {
+    const { isDarkTheme } = useTheme();
     return(
         <Tab.Navigator
         screenOptions={({ route }) => ({
@@ -21,11 +22,18 @@ export function Tabs ({}) {
             }
               return <Image source={icons[route.name]} style={styles.icon} />;
             },
+            tabBarStyle: {
+              backgroundColor: isDarkTheme ? '#333345' : '#ffffff',
+              borderTopWidth: '0px',
+              elevation: 0,
+            },
           })}
+         
           tabBarOptions={{
             activeTintColor: 'blue',
             inactiveTintColor: 'gray',
           }}
+
         >
         <Tab.Screen name="Home" component={HomeScreen} options={{ headerShown: false }} />
         <Tab.Screen name="MyCards" component={''} options={{ headerShown: false }}/>
@@ -42,4 +50,7 @@ const styles = StyleSheet.create({
       height: 20,
       color: 'red'
     },
+    darkContainer: {
+      backgroundColor: '#000020',
+  },
   });

@@ -1,12 +1,15 @@
 import { View,StyleSheet, Text, Image } from "react-native";
+import { useTheme } from "./themeContext";
+
 
 export function Option ({icon, name}) {
+    const { isDarkTheme } = useTheme();
     return(
         <View style={styles.optionContainer}>
             <View style={styles.option}>
                 <Image source={icon} style={styles.icon}/>
             </View>
-            <Text style={styles.optionName}>{name}</Text>
+            <Text style={[styles.optionName, isDarkTheme && styles.darkOptionName]}>{name}</Text>
         </View>
     )}
 
@@ -39,7 +42,10 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         color: 'lightblack',
         fontSize: '16px',
-        fontWeight: 400,
-        
+        fontWeight: 400,    
     },
+    darkOptionName: {
+        color: 'white',
+    },
+
 })

@@ -1,22 +1,24 @@
 import { View, StyleSheet, Text, Image } from "react-native";
+import { useTheme } from "./themeContext";
 
 export function Transaction ({icon, name, type, cost}) {
 
     const getColorStyle = (value) => {
-        return value.startsWith('-') ? styles.negativeText : styles.positiveText;
+        return value.startsWith('-') ? [styles.negativeText, isDarkTheme && styles.darkname, ]: styles.positiveText;
       };
 
+      const { isDarkTheme } = useTheme();
     return(
         <View style={styles.transactionContainer}>
             <View style={styles.icon}>
                 <Image source={icon} style={styles.iconImg}/>
             </View>
             <View style={styles.details}>
-                <Text style={styles.name}>{name}</Text>
+                <Text style={[styles.name, isDarkTheme && styles.darkname]}>{name}</Text>
                 <Text style={styles.type}>{type}</Text>
             </View>
             <View>
-                <Text style={[styles.cost, getColorStyle(cost)]}>{cost}</Text>
+                <Text style={[styles.cost , getColorStyle(cost)]}>{cost}</Text>
             </View>
         </View>
     )}
@@ -55,6 +57,9 @@ const styles = StyleSheet.create({
         fontSize: '22px',
         fontWeight: 'bold',
         flex: 1,
+    },
+    darkname: {
+        color: 'white',
     },
     type: {
         fontSize: '19px',

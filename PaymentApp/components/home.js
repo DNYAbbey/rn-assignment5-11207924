@@ -1,15 +1,17 @@
 import { View, StyleSheet, Image, Text, ScrollView } from "react-native";
 import { Option } from "./options";
 import { Transaction } from "./transaction";
+import { useTheme } from "./themeContext";
 
 export function HomeScreen () {
+    const { isDarkTheme } = useTheme();
     return(
-        <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
+        <ScrollView style={[styles.container, isDarkTheme && styles.darkContainer]} showsVerticalScrollIndicator={false}>
             <View style={styles.header}>
                 <Image source={require('../assets/profile.png')} style={styles.profile}/>
                 <View style={styles.textblock}>
                     <Text style={styles.welcome}>Welcome Back</Text>
-                    <Text style={styles.name}>Eric Atsu</Text>
+                    <Text style={[styles.name, isDarkTheme && styles.darkname]}>Eric Atsu</Text>
                 </View>
                <View style={styles.search}>
                <Image source={require('../assets/search.png')} style={styles.searchicon}/>
@@ -26,7 +28,7 @@ export function HomeScreen () {
             </View>
 
             <View style={styles.titleView}>
-                <Text style={styles.title}>Transaction</Text>
+                <Text style={[styles.title, isDarkTheme && styles.darkname]}>Transaction</Text>
                 <Text style={styles.more}>See All</Text>
             </View>
 
@@ -65,6 +67,9 @@ const styles = StyleSheet.create({
     container:{
         padding: '20px',
     },
+    darkContainer: {
+        backgroundColor: '#000020',
+    },
     header:{
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -86,6 +91,9 @@ const styles = StyleSheet.create({
     name: {
         fontWeight: 'bold',
         fontSize: '30px',
+    },
+    darkname: {
+        color: 'white',
     },
     search: {
         width: '60px',
