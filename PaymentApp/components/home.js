@@ -99,7 +99,7 @@ const styles = StyleSheet.create({
     search: {
         width: '60px',
         height: '60px',
-        backgroundColor: 'lightgray',
+        backgroundColor: 'rgba(211, 211, 211, 0.3)',
         borderRadius: '50%', 
         justifyContent: 'center',
         alignItems: 'center',

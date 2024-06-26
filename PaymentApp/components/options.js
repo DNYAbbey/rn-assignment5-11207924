@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         
     },
     option: {
-        backgroundColor: 'lightgray',
+        backgroundColor: 'rgba(211, 211, 211, 0.3)',
         width: '80px',
         height: '80px',
         borderRadius: '50%',

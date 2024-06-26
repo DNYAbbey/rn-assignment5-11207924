@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'rgba(51, 51, 70, 0.5).',
     },
     icon: {
-        backgroundColor: 'lightgray',
+        backgroundColor: 'rgba(211, 211, 211, 0.3)',
         width: '65px',
         height: '65px',
         borderRadius: '50%',
