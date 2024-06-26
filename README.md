@@ -1,6 +1,6 @@
 # rn-assignment5-11207924
 
-## Bank App (Frontend Only)
+## Card Transactions Management App (Frontend Only)
 
 This an app that allows a user track the payments or transactions made with his or her card.
 - The app was built using react-native. It was built to primarily have to screens that can be navigated to using a bottom tab navigator. The screens are home screen and settings screen. Per the given design the my cards screen and statistics screen have no content.
